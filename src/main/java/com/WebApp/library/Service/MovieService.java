@@ -1,4 +1,6 @@
-package com.WebApp.library;
+package com.WebApp.library.Service;
+
+import com.WebApp.library.Model.Movie;
 
 import java.util.List;
 

@@ -1,5 +1,7 @@
-package com.WebApp.library;
+package com.WebApp.library.Repository;
 
+import com.WebApp.library.Model.Movie;
+import com.WebApp.library.Model.MovieDAO;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +11,13 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
-public class MovieDAOimpl implements MovieDAO{
+public class MovieDAOimpl implements MovieDAO {
 
     @Autowired
     private EntityManager entityManager;
 
     @Override
+
     public List<Movie> get() {
        Session currentSession = entityManager.unwrap(Session.class);
        Query<Movie> query = currentSession.createQuery("from Movie", Movie.class);

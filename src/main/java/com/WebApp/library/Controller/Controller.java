@@ -1,23 +1,32 @@
-package com.WebApp.library;
+package com.WebApp.library.Controller;
 
+import com.WebApp.library.Model.Movie;
+import com.WebApp.library.Service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/library")
+
 public class Controller {
 
     @Autowired
     private MovieService movieService;
 
-    @GetMapping("")
+
+    @GetMapping("/login")
+    public String Start(){
+        return String.format("No eloo");
+    }
+
+    @GetMapping("/library")
+
         public List<Movie> getAll() {
             return movieService.get();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/library/{id}")
     public Movie get(@PathVariable("id") int id){
         Movie movieObj = movieService.get(id);
         if(movieObj == null){
@@ -26,13 +35,13 @@ public class Controller {
         return movieObj;
     }
 
-    @PostMapping("")
+    @PostMapping("/library")
     public Movie save(@RequestBody Movie movieObj){
         movieService.save(movieObj);
         return movieObj;
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/library/{id}")
     public int update(@PathVariable("id") int id, @RequestBody Movie movieObj){
         Movie movie = movieService.get(id);
 
@@ -48,7 +57,7 @@ public class Controller {
         }
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/library/{id}")
     public int partiallyUpdate(@PathVariable("id") int id, @RequestBody Movie movieObj){
         Movie movie = movieService.get(id);
 
@@ -63,7 +72,7 @@ public class Controller {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/library/{id}")
     public String delete(@PathVariable("id") int id){
         movieService.delete(id);
         return "Movie has been deleated";

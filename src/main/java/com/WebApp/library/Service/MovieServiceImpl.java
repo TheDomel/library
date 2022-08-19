@@ -1,5 +1,7 @@
-package com.WebApp.library;
+package com.WebApp.library.Service;
 
+import com.WebApp.library.Model.Movie;
+import com.WebApp.library.Model.MovieDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

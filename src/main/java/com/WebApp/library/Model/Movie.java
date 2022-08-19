@@ -1,4 +1,4 @@
-package com.WebApp.library;
+package com.WebApp.library.Model;
 
 
 import lombok.*;
@@ -8,10 +8,6 @@ import javax.persistence.*;
 
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name = "model_tab")
 public class Movie {
