@@ -3,6 +3,8 @@ package com.WebApp.library.Controller;
 import com.WebApp.library.Model.Movie;
 import com.WebApp.library.Service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +24,7 @@ public class Controller {
 
     @GetMapping("/library")
 
-        public List<Movie> getAll() {
+        public List<Movie> getAll(@AuthenticationPrincipal UsernamePasswordAuthenticationToken user) {
             return movieService.get();
     }
 
